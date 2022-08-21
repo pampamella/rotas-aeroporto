@@ -1,24 +1,27 @@
 import src.config.Database;
+import src.infra.server.MySQLConnection;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class Teste {
-        public static void main(String[] args) {
-            Database MySql = new Database();
-            String url = MySql.url;
-            String username = MySql.username;
-            String password = MySql.password;
+    private Connection banco;
 
-            System.out.println(url);
-            System.out.println("Connecting database...");
-
-            try (Connection connection = DriverManager.getConnection(url, username, password)) {
-                System.out.println("Database connected!");
-            } catch (SQLException e) {
-                throw new IllegalStateException("Cannot connect the database!", e);
-            }
+    public Teste() throws SQLException {
+        this.banco = (new MySQLConnection()).connect();
+    }
+    public void listar() throws SQLException{
+        String SQL = "SELECT * FROM customers";
+        PreparedStatement prepararComando = banco.prepareStatement(SQL);
+        ResultSet conjuntoDados = prepararComando.executeQuery();
+        System.out.println(conjuntoDados);
+        while(conjuntoDados.next()){
+            System.out.println(conjuntoDados.getString("city"));
         }
+    }
+
 }
