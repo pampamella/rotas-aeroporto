@@ -1,7 +1,40 @@
 package src.config;
 
 public class Database {
-    public String url = "jdbc:mysql://localhost:3306/classicmodels";//System.getenv("MYSQL_JDBC_URL");
-    public String username = "java"; // System.getenv("MYSQL_USERNAME");
-    public String password = "senhamysql"; //System.getenv("MYSQL_PASSWORD");
+
+    private final String baseUrl = "jdbc:mysql://localhost:";
+    private final String port = "3306";
+    private final String database = "classicmodels";
+    final String username = "java";
+    final String password = "senhamysql";
+
+    private final String urlConnection;
+
+    public Database() {
+        this.urlConnection = this.baseUrl + this.port + "/" + this.database;
+    }
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public String getDatabase() {
+        return database;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getUrlConnection() {
+        return urlConnection;
+    }
 }
