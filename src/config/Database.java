@@ -4,7 +4,7 @@ public class Database {
 
     private final String baseUrl = "jdbc:mysql://localhost:";
     private final String port = "3306";
-    private final String database = "classicmodels";
+    private final String database = "labprog";
     final String username = "java";
     final String password = "senhamysql";
 

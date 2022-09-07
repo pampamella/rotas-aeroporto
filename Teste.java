@@ -15,23 +15,23 @@ public class Teste {
         this.banco = (new MySQLConnection()).connect();
     }
     public void listar() throws SQLException{
-        String SQL = "SELECT * FROM customers";
+        String SQL = "SELECT * FROM aeroportos";
         PreparedStatement prepararComando = banco.prepareStatement(SQL);
         ResultSet conjuntoDados = prepararComando.executeQuery();
         System.out.println(conjuntoDados);
         while(conjuntoDados.next()){
-            System.out.println(conjuntoDados.getString("city"));
+            System.out.println(conjuntoDados.getString("nomeCompleto"));
         }
     }
     public void buscar(String cidade, String estado) throws SQLException{
-        String SQL = "SELECT * FROM customers WHERE city=? AND state=?";
+        String SQL = "SELECT * FROM aeroportos WHERE cidade=? AND estado=?";
         PreparedStatement prepararComando = banco.prepareStatement(SQL);
         prepararComando.setString(1, cidade);
         prepararComando.setString(2, estado);
         ResultSet conjuntoDados = prepararComando.executeQuery();
         System.out.println(conjuntoDados);
         while(conjuntoDados.next()){
-            System.out.println(conjuntoDados.getString("customerNumber"));
+            System.out.println(conjuntoDados.getString("nomeCompleto"));
         }
     }
 
