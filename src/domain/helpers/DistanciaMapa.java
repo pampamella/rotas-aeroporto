@@ -1,6 +1,6 @@
 package src.domain.helpers;
 
-import src.domain.entities.Aeroporto;
+import src.domain.model.Aeroporto;
 
 public class DistanciaMapa {
     public static double calculaDistancia(Aeroporto origem, Aeroporto destino)

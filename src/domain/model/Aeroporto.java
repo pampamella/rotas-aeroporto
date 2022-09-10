@@ -1,4 +1,4 @@
-package src.domain.entities;
+package src.domain.model;
 
 public class Aeroporto {
     public String codigo;
