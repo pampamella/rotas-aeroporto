@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import src.domain.entities.Aeroporto;
+import src.domain.model.Aeroporto;
 
 public class AeroportoDAO {
     private Connection banco;

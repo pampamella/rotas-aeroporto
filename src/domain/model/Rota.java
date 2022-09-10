@@ -1,9 +1,9 @@
-package src.domain.entities;
+package src.domain.model;
 
 public class Rota {
     public Aeroporto aeroportoOrigem;
     public Aeroporto aeroportoDestino;
-    public String rotaMinima; //passível de mudanças
+    public String rotaMinima;
 
     public Rota(Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino) {
 
@@ -11,5 +11,4 @@ public class Rota {
         this.aeroportoDestino = aeroportoDestino;
     }
 
-    //to do: implementar dijkstra
 }
