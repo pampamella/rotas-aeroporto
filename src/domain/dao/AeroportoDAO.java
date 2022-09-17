@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import src.domain.model.Aeroporto;
 
 public class AeroportoDAO {
-    private Connection banco;
+    private final Connection banco;
 
     public AeroportoDAO() throws SQLException {
         this.banco = (new MySQLConnection()).connect();
@@ -80,6 +80,27 @@ public class AeroportoDAO {
             aeroportosPorEstado.add(aeroporto);
         }
         return aeroportosPorEstado;
+    }
+
+    public Aeroporto buscaAeroportoCodigo(String codigo) throws SQLException {
+        String SQL = "SELECT * FROM aeroportos WHERE codigo=?";
+        PreparedStatement prepararComando = banco.prepareStatement(SQL);
+        prepararComando.setString(1, codigo);
+        ResultSet conjuntoDados = prepararComando.executeQuery();
+
+        Aeroporto aeroporto = null;
+
+        while (conjuntoDados.next()) {
+            aeroporto = new Aeroporto(
+                    codigo,
+                    conjuntoDados.getString("nomeCompleto"),
+                    conjuntoDados.getString("cidade"),
+                    conjuntoDados.getString("estado"),
+                    conjuntoDados.getDouble("latitude"),
+                    conjuntoDados.getDouble("longitude")
+            );
+        }
+        return aeroporto;
     }
 
 }

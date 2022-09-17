@@ -1,9 +1,6 @@
 package src.domain.model;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Node<T> {
 

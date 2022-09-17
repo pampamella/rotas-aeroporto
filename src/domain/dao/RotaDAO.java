@@ -18,11 +18,11 @@ public class RotaDAO {
 
         PreparedStatement prepararComando = banco.prepareStatement(SQL);
 
-        prepararComando.setString(1, rota.aeroportoOrigem.codigo);
-        prepararComando.setString(2, rota.aeroportoDestino.codigo);
-        prepararComando.setString(3, rota.aeroportoOrigem.nomeCompleto);
-        prepararComando.setString(4, rota.aeroportoDestino.nomeCompleto);
-        prepararComando.setString(5, rota.rotaMinima);
+        prepararComando.setString(1, rota.getAeroportoOrigem().getCodigo());
+        prepararComando.setString(2, rota.getAeroportoDestino().getCodigo());
+        prepararComando.setString(3, rota.getAeroportoOrigem().getNomeCompleto());
+        prepararComando.setString(4, rota.getAeroportoDestino().getNomeCompleto());
+        prepararComando.setString(5, rota.getRotaMinima());
 
         int resultado = prepararComando.executeUpdate();
 
@@ -32,8 +32,8 @@ public class RotaDAO {
     public String buscarRota(Aeroporto origem, Aeroporto destino) throws SQLException {
         String SQL = "SELECT * FROM rotas WHERE codigoOrigem=? AND codigoDestino=?";
         PreparedStatement prepararComando = banco.prepareStatement(SQL);
-        prepararComando.setString(1, origem.codigo);
-        prepararComando.setString(2, destino.codigo);
+        prepararComando.setString(1, origem.getCodigo());
+        prepararComando.setString(2, destino.getCodigo());
         ResultSet conjuntoDados = prepararComando.executeQuery();
         conjuntoDados.next();
         return conjuntoDados.getString("rotaMinima");
