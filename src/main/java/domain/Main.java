@@ -97,13 +97,13 @@ public class Main {
                 Dijkstra.calculateShortestPathFromSource(graph, origem);
 
                 //Cria objeto rota
-                Rota rotaExemplo = new Rota(origem.getValue(), destino.getValue());
+                Rota rota = new Rota(origem.getValue(), destino.getValue());
 
                 //Utiliza resultado do dijkstra para encontrar rota minima desejada
-                rotaExemplo.encontraRotaMinima(graph, destino);
+                rota.encontraRotaMinima(graph, destino);
 
                 //Insere nova rota ao banco
-                rotaDAO.inserirRota(rotaExemplo);
+                rotaDAO.inserirRota(rota);
 
                 //Recupera aresta entre origem e destino
                 graph.reconectaOrigemDestino(allNodes, origem, destino);
