@@ -1,11 +1,11 @@
-package src.domain.dao;
-import src.domain.model.Aeroporto;
-import src.infra.server.MySQLConnection;
+package domain.dao;
+import domain.model.Aeroporto;
+import infra.server.MySQLConnection;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import src.domain.model.Rota;
+import domain.model.Rota;
 
 public class RotaDAO {
     private Connection banco;

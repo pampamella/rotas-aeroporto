@@ -1,10 +1,10 @@
-package src.domain.model;
+package domain.model;
 
 import java.util.*;
 
 public class Node<T> {
 
-    private T value;
+    private final T value;
 
     private LinkedList<Node<T>> shortestPath = new LinkedList<>();
 
@@ -20,10 +20,6 @@ public class Node<T> {
         if(distance>0.0) {
             adjacentNodes.put(destination, distance);
         }
-    }
-
-    public void setValue(T value) {
-        this.value = value;
     }
 
     public T getValue() {

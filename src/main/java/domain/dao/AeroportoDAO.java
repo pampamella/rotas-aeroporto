@@ -1,11 +1,11 @@
-package src.domain.dao;
-import src.infra.server.MySQLConnection;
+package domain.dao;
+import infra.server.MySQLConnection;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import src.domain.model.Aeroporto;
+import domain.model.Aeroporto;
 
 public class AeroportoDAO {
     private final Connection banco;

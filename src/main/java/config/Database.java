@@ -1,4 +1,4 @@
-package src.config;
+package config;
 
 public class Database {
 
