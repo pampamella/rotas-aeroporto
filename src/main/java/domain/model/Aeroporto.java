@@ -1,4 +1,5 @@
-package src.domain.model;
+package domain.model;
+
 
 public class Aeroporto {
     private final String codigo;
@@ -19,6 +20,14 @@ public class Aeroporto {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public String getNomeCompleto() {

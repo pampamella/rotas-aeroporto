@@ -1,6 +1,6 @@
-package src.domain.model;
+package domain.model;
 
-import src.domain.helpers.DistanciaMapa;
+import domain.helpers.DistanciaMapa;
 
 import java.util.HashSet;
 import java.util.List;

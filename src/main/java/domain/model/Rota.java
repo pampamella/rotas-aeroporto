@@ -1,4 +1,4 @@
-package src.domain.model;
+package domain.model;
 
 import java.util.Objects;
 
@@ -38,6 +38,7 @@ public class Rota {
 
         rotaMinima.append(destino.getValue().getCodigo()).append(" (").append(destino.getValue().getNomeCompleto()).append(") ");
         this.rotaMinima = rotaMinima.toString();
+        System.out.println("Rota mínima entre aeroportos:");
         System.out.println(rotaMinima.toString());
     }
 

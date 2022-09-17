@@ -1,6 +1,6 @@
-package src.infra.server;
+package infra.server;
 
-import src.config.Database;
+import config.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
