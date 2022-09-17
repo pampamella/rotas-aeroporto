@@ -5,10 +5,7 @@ import src.domain.model.*;
 import src.domain.helpers.DistanciaMapa;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,8 +15,19 @@ public class Main {
 
             ArrayList<Aeroporto> listaAeroportos = aeroportoDAO.listarAeroportos();
 
-            Aeroporto aeroportoPET = aeroportoDAO.buscaAeroportoCodigo("PET");
-            Aeroporto aeroportoPOA = aeroportoDAO.buscaAeroportoCodigo("POA");
+            System.out.println("Insira codigo do aeroporto de origem: ");
+            Scanner input = new Scanner( System.in );
+            String codigoOrigem = input.nextLine();
+
+            System.out.println("codigo origem: " + codigoOrigem);
+
+            System.out.println("Insira codigo do aeroporto de destino: ");
+            String codigoDestino = input.nextLine();
+
+            System.out.println("codigo destino: " + codigoDestino);
+
+            Aeroporto aeroportoOrigem = aeroportoDAO.buscaAeroportoCodigo(codigoOrigem);
+            Aeroporto aeroportoDestino = aeroportoDAO.buscaAeroportoCodigo(codigoDestino);
 
             //teste grafo
             List<Node<Aeroporto>> allNodes = new ArrayList<>();
@@ -35,32 +43,32 @@ public class Main {
 
             //TODO:remover prints
             for(Node<Aeroporto> node: allNodes){
-                System.out.println(node.getValue().codigo);
+                System.out.println(node.getValue().getCodigo());
                 System.out.println("Adjacentes");
                 for (Map.Entry<Node<Aeroporto>, Double> entry : node.getAdjacentNodes().entrySet()) {
-                System.out.println(entry.getKey().getValue().codigo);
+                System.out.println(entry.getKey().getValue().getCodigo());
                 }
             }
 
             //remover aresta entre origem e destino
 
-            Node<Aeroporto> origem = new Node<>(aeroportoPET);
-            Node<Aeroporto> destino = new Node<>(aeroportoPOA);
+            Node<Aeroporto> origem = new Node<>(aeroportoOrigem);
+            Node<Aeroporto> destino = new Node<>(aeroportoDestino);
 
             allNodes = graph.desconectaOrigemDestino(allNodes, origem, destino);
 
             //TODO:remover prints
             for(Node<Aeroporto> node: allNodes){
-                System.out.println(node.getValue().codigo);
+                System.out.println(node.getValue().getCodigo());
                 System.out.println("Adjacentes");
                 for (Map.Entry<Node<Aeroporto>, Double> entry : node.getAdjacentNodes().entrySet()) {
-                    System.out.println(entry.getKey().getValue().codigo);
+                    System.out.println(entry.getKey().getValue().getCodigo());
                 }
             }
 
             //corrigindo a droga da origemmm
             for(Node<Aeroporto> node: allNodes){
-                if(Objects.equals(node.getValue().codigo, origem.getValue().codigo)){ //TODO:refatorar samerda
+                if(Objects.equals(node.getValue().getCodigo(), origem.getValue().getCodigo())){ //TODO:refatorar
                     origem.setAdjacentNodes(node.getAdjacentNodes());
                 }
             }
@@ -77,7 +85,7 @@ public class Main {
 
 
 
-            //testes rotaDAO
+            //criar rota
             Rota rotaExemplo = new Rota(origem.getValue(), destino.getValue());
 
             rotaExemplo.encontraRotaMinima(graph, destino);

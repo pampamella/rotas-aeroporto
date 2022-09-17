@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import src.domain.model.Aeroporto;
 
 public class AeroportoDAO {
-    private Connection banco;
+    private final Connection banco;
 
     public AeroportoDAO() throws SQLException {
         this.banco = (new MySQLConnection()).connect();

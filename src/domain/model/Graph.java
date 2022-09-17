@@ -35,12 +35,12 @@ public class Graph {
     }
     public List<Node<Aeroporto>> desconectaOrigemDestino(List<Node<Aeroporto>> nodeList, Node<Aeroporto> origem, Node<Aeroporto> destino) {
         for(Node<Aeroporto> node: nodeList){
-            System.out.println(node.getValue().codigo);
+            System.out.println(node.getValue().getCodigo());
              //TODO: tirar print
-            if(Objects.equals(node.getValue().codigo, origem.getValue().codigo) || Objects.equals(node.getValue().codigo, destino.getValue().codigo)){
+            if(Objects.equals(node.getValue().getCodigo(), origem.getValue().getCodigo()) || Objects.equals(node.getValue().getCodigo(), destino.getValue().getCodigo())){
                 System.out.println("Removendo");
-                node.getAdjacentNodes().entrySet().removeIf(i -> Objects.equals(i.getKey().getValue().codigo, origem.getValue().codigo));
-                node.getAdjacentNodes().entrySet().removeIf(i -> Objects.equals(i.getKey().getValue().codigo, destino.getValue().codigo));
+                node.getAdjacentNodes().entrySet().removeIf(i -> Objects.equals(i.getKey().getValue().getCodigo(), origem.getValue().getCodigo()));
+                node.getAdjacentNodes().entrySet().removeIf(i -> Objects.equals(i.getKey().getValue().getCodigo(), destino.getValue().getCodigo()));
             }
         }
         return nodeList;
@@ -48,9 +48,9 @@ public class Graph {
     public List<Node<Aeroporto>> reconectaOrigemDestino(List<Node<Aeroporto>> nodeList, Node<Aeroporto> origem, Node<Aeroporto> destino) {
         double distance=0.0;
         for(Node<Aeroporto> node: nodeList){
-            System.out.println(node.getValue().codigo);
+            System.out.println(node.getValue().getCodigo());
             //TODO: tirar print
-            if(Objects.equals(node.getValue().codigo, origem.getValue().codigo) || Objects.equals(node.getValue().codigo, destino.getValue().codigo)){
+            if(Objects.equals(node.getValue().getCodigo(), origem.getValue().getCodigo()) || Objects.equals(node.getValue().getCodigo(), destino.getValue().getCodigo())){
                 System.out.println("reconectando");
                 distance = DistanciaMapa.calculaDistancia(node.getValue(), origem.getValue());
                 node.addDestination(origem, distance);

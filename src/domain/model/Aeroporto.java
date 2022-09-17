@@ -1,12 +1,12 @@
 package src.domain.model;
 
 public class Aeroporto {
-    public String codigo;
-    public String nomeCompleto;
-    public String cidade;
-    public String estado;
-    public Double latitude;
-    public Double longitude;
+    private String codigo;
+    private String nomeCompleto;
+    private String cidade;
+    private String estado;
+    private Double latitude;
+    private Double longitude;
 
     public Aeroporto(String codigo, String nomeCompleto, String cidade, String estado, Double latitude, Double longitude) {
         this.codigo = codigo;
@@ -14,6 +14,54 @@ public class Aeroporto {
         this.cidade = cidade;
         this.estado = estado;
         this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 

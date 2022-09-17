@@ -5,10 +5,10 @@ import src.domain.model.Aeroporto;
 public class DistanciaMapa {
     public static double calculaDistancia(Aeroporto origem, Aeroporto destino)
     {
-        double latOrigem = Math.toRadians(origem.latitude);
-        double lonOrigem = Math.toRadians(origem.longitude);
-        double latDestino = Math.toRadians(destino.latitude);
-        double lonDestino = Math.toRadians(destino.longitude);
+        double latOrigem = Math.toRadians(origem.getLatitude());
+        double lonOrigem = Math.toRadians(origem.getLongitude());
+        double latDestino = Math.toRadians(destino.getLatitude());
+        double lonDestino = Math.toRadians(destino.getLongitude());
 
         // Fórmula de Haversine
         double distanciaLon = lonDestino - lonOrigem;
