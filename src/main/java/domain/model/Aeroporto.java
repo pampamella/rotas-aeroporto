@@ -41,14 +41,4 @@ public class Aeroporto {
     public Double getLongitude() {
         return longitude;
     }
-
-    public void imprimir(){
-        System.out.println(" ---- Aeroporto ----");
-        System.out.print("Codigo: " + codigo + " | ");
-        System.out.print("Nome: " + nomeCompleto + " | ");
-        System.out.print("Cidade: " + cidade + " | ");
-        System.out.print("Estado: " + estado + " | ");
-        System.out.print("Latitude: " + latitude + " | ");
-        System.out.println("Longitude: " + longitude);
-    }
 }
