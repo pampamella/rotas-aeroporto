@@ -17,24 +17,12 @@ public class Rota {
         return aeroportoOrigem;
     }
 
-    public void setAeroportoOrigem(Aeroporto aeroportoOrigem) {
-        this.aeroportoOrigem = aeroportoOrigem;
-    }
-
     public Aeroporto getAeroportoDestino() {
         return aeroportoDestino;
     }
 
-    public void setAeroportoDestino(Aeroporto aeroportoDestino) {
-        this.aeroportoDestino = aeroportoDestino;
-    }
-
     public String getRotaMinima() {
         return rotaMinima;
-    }
-
-    public void setRotaMinima(String rotaMinima) {
-        this.rotaMinima = rotaMinima;
     }
 
     public void encontraRotaMinima(Graph grafo, Node<Aeroporto> destino){
@@ -42,18 +30,13 @@ public class Rota {
 
         for(Node<Aeroporto> node : grafo.getNodes()){
             if(Objects.equals(node.getValue().getCodigo(), destino.getValue().getCodigo())){
-                System.out.print(node.getValue().getCodigo() + " shortest path "); //TODO: apagar prints
-                System.out.println();
                 for(Node<Aeroporto> no: node.getShortestPath()){
-                    rotaMinima.append(no.getValue().getCodigo()).append(" - ");
-                    System.out.print(no.getValue().getCodigo());
+                    rotaMinima.append(no.getValue().getCodigo()).append(" (").append(no.getValue().getNomeCompleto()).append(") ").append(" - ");
                 }
             }
-
-            System.out.println();
         }
 
-        rotaMinima.append(destino.getValue().getCodigo());
+        rotaMinima.append(destino.getValue().getCodigo()).append(" (").append(destino.getValue().getNomeCompleto()).append(") ");
         this.rotaMinima = rotaMinima.toString();
         System.out.println(rotaMinima.toString());
     }
