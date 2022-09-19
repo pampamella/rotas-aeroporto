@@ -1,10 +1,8 @@
 package domain.dao;
-import domain.model.Aeroporto;
 import infra.server.MySQLConnection;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import domain.model.Rota;
 
 public class RotaDAO {
@@ -28,14 +26,5 @@ public class RotaDAO {
 
         //Retornar a quantidade de registros alterados no banco
         return resultado;
-    }
-    public String buscarRota(Aeroporto origem, Aeroporto destino) throws SQLException {
-        String SQL = "SELECT * FROM rotas WHERE codigoOrigem=? AND codigoDestino=?";
-        PreparedStatement prepararComando = banco.prepareStatement(SQL);
-        prepararComando.setString(1, origem.getCodigo());
-        prepararComando.setString(2, destino.getCodigo());
-        ResultSet conjuntoDados = prepararComando.executeQuery();
-        conjuntoDados.next();
-        return conjuntoDados.getString("rotaMinima");
     }
 }
